@@ -72,7 +72,6 @@ const LoginForm = () => {
           </>
         )}
       </div>
-
       <button
         disabled={password.formValid || email.formValid}
         className="button button_xl"

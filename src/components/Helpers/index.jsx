@@ -4,6 +4,7 @@ import Modal from "./Modal";
 import Badge from "./Badge";
 import SearchInput from "./SearchInput";
 import Input from "./Input";
+import Textarea from "./Textarea";
 import InputNotification from "./InputNotification";
 
 export {
@@ -14,4 +15,5 @@ export {
   Badge,
   Input,
   InputNotification,
+  Textarea,
 };
