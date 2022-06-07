@@ -1,7 +1,12 @@
 import React from "react";
+import { Container, SearchInput } from "../Helpers";
 
 const NewsList = () => {
-  return <div>News list</div>;
+  return (
+    <Container>
+      <SearchInput />
+    </Container>
+  );
 };
 
 export default NewsList;

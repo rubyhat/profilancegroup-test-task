@@ -1,0 +1,27 @@
+.search-input {
+  padding: 2rem 0;
+}
+
+.search-input__input,
+.search-input__button {
+  padding: 0.5rem 1rem;
+}
+
+.search-input__input {
+  border: 2px solid var(--accent);
+  border-radius: 0.25rem 0 0 0.25rem;
+  width: 100%;
+  max-width: 320px;
+  font-weight: 700;
+  transition: all 333ms ease;
+  &:focus {
+    outline: none;
+    border-color: rgba(#ffd775, 0.5);
+  }
+}
+
+.search-input__button {
+  border-radius: 0 0.25rem 0.25rem 0;
+  font-weight: 700;
+  margin: -2px;
+}

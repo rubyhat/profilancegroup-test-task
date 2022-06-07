@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import "./header.scss";
 import { Link } from "react-router-dom";
-import { Container } from "../Helpers";
-import Modal from "../Helpers/Modal";
+
+import { Container, Modal } from "../Helpers";
 import LoginForm from "../LoginForm";
+
+import "./header.scss";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
