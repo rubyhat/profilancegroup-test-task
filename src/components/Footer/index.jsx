@@ -2,6 +2,8 @@ import React from "react";
 
 import { Container } from "../Helpers";
 
+import "./footer.scss";
+
 const Footer = () => {
   return (
     <footer>

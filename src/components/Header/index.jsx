@@ -19,7 +19,7 @@ const Header = () => {
             />
           </Link>
           <nav className="nav-list">
-            <Link className="link nav-list__item" to="/">
+            <Link className="link nav-list__item" to="/news/create">
               Добавить новость
             </Link>
             <Link className="link nav-list__item" to="/news">

@@ -1,0 +1,17 @@
+.field__input {
+  border: 2px solid var(--accent);
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark);
+  opacity: 0.5;
+  transition: all 333ms ease;
+  &:focus {
+    outline: none;
+    border-color: rgba(#1d2434, 0.5);
+  }
+  &:hover {
+    opacity: 1;
+  }
+}

@@ -48,15 +48,6 @@ footer {
   padding: 1.5rem 0;
 }
 
-header {
-  border-bottom: 2px solid #e9e9e9;
-}
-
-footer {
-  border-top: 2px solid #e9e9e9;
-  margin-top: 2rem;
-}
-
 #root {
   display: flex;
   height: 100%;
@@ -124,6 +115,10 @@ footer {
   &:hover {
     background-color: var(--white);
     border-color: var(--accent);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: auto;
   }
 }
 
