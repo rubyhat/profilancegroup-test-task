@@ -74,13 +74,6 @@ footer {
   position: relative;
 }
 
-.container {
-  width: 100%;
-  max-width: 1170px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
 .hide {
   position: absolute;
   left: -9999px;
@@ -160,25 +153,4 @@ footer {
 
 .link_active {
   color: var(--second);
-}
-
-.alert {
-  display: inline-flex;
-  padding: 1rem;
-  margin: 1rem;
-  border-radius: 0.5rem;
-  border: 2px solid transparent;
-  font-size: 1rem;
-  font-weight: 700;
-}
-
-.alert_info {
-  background-color: lightblue;
-  border-color: lightseagreen;
-}
-
-.alert_warning {
-  background-color: var(--accent);
-  border-color: orange;
-  color: var(--dark);
 }
