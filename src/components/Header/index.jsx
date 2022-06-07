@@ -13,14 +13,14 @@ const Header = () => {
               alt="Logotype"
             />
           </Link>
-          <nav>
-            <Link className="link" to="/">
+          <nav className="nav-list">
+            <Link className="link nav-list__item" to="/">
               Добавить новость
             </Link>
-            <Link className="link" to="/">
+            <Link className="link nav-list__item" to="/news">
               Новости
             </Link>
-            <Link className="link" to="/">
+            <Link className="button button_xl nav-list__item" to="/">
               Вход
             </Link>
           </nav>
