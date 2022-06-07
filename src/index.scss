@@ -1,0 +1,5 @@
+@import "./vars.scss";
+
+.hello {
+  color: var(--accent);
+}
