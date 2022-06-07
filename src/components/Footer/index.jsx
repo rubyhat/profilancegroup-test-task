@@ -1,9 +1,10 @@
 import React from "react";
+import { Container } from "../Helpers";
 
 const Footer = () => {
   return (
     <footer>
-      <div className="container">
+      <Container>
         <p className="text text-md">
           Тестовое задание разработано{" "}
           <a
@@ -15,7 +16,7 @@ const Footer = () => {
             @rubyhat
           </a>
         </p>
-      </div>
+      </Container>
     </footer>
   );
 };

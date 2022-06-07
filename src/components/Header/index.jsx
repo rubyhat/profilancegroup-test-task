@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./header.scss";
 import { Link } from "react-router-dom";
+import { Container } from "../Helpers";
+import Modal from "../Helpers/Modal";
+import LoginForm from "../LoginForm";
 
 const Header = () => {
+  const [isActive, setIsActive] = useState(false);
   return (
     <header>
-      <div className="container">
+      <Container>
         <div className="header">
           <Link to="/" className="logo">
             <img
@@ -20,12 +24,24 @@ const Header = () => {
             <Link className="link nav-list__item" to="/news">
               Новости
             </Link>
-            <Link className="button button_xl nav-list__item" to="/">
+            <Link
+              onClick={() => setIsActive(true)}
+              className="button button_xl nav-list__item"
+              to="/"
+            >
               Вход
             </Link>
           </nav>
         </div>
-      </div>
+      </Container>
+      <Modal
+        modal="auth"
+        isActive={isActive}
+        setIsActive={setIsActive}
+        title="Форма входа"
+      >
+        <LoginForm />
+      </Modal>
     </header>
   );
 };

@@ -6,7 +6,7 @@ import { NewsList } from "../components/News";
 import { NoAuth, Page404 } from "../components/ErrorPages";
 
 const RouteList = () => {
-  const isAuth = false;
+  const isAuth = true;
   return (
     <Routes>
       <Route path="*" element={<Page404 />} />

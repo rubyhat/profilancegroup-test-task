@@ -7,6 +7,7 @@ import RouteList from "./Router/RouterList";
 function App() {
   const createHistory = require("history").createBrowserHistory;
   const history = createHistory();
+
   return (
     <div className="wrapper">
       <Router history={history}>
