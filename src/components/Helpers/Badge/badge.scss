@@ -1,0 +1,18 @@
+.badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  transition: all 133ms ease;
+}
+
+.badge_accent {
+  background-color: var(--accent);
+}
+
+.badge_second {
+  background-color: var(--second);
+}
+
+.badge_dark {
+  color: var(--white);
+  background-color: var(--dark);
+}

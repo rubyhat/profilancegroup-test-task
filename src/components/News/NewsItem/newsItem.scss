@@ -1,0 +1,28 @@
+.card {
+  width: 100%;
+  max-width: 570px;
+  display: flex;
+  flex-direction: column;
+  padding: 2rem;
+  border: 2px solid var(--accent);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 333ms ease;
+  &:hover {
+    background-color: var(--accent);
+    .badge {
+      background-color: var(--dark);
+      color: var(--white);
+    }
+  }
+  @media (max-width: 768px) {
+    max-width: inherit;
+  }
+}
+
+.card__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+}

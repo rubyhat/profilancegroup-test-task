@@ -1,0 +1,9 @@
+.news-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 2rem;
+  grid-row-gap: 2rem;
+  @media (max-width: 768px) {
+    grid-template-columns: minmax(320px, 1fr);
+  }
+}

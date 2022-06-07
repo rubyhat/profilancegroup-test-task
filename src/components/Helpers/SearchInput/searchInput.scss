@@ -1,5 +1,7 @@
 .search-input {
   padding: 2rem 0;
+  display: flex;
+  align-items: center;
 }
 
 .search-input__input,
@@ -17,6 +19,9 @@
   &:focus {
     outline: none;
     border-color: rgba(#ffd775, 0.5);
+  }
+  @media (max-width: 768px) {
+    max-width: inherit;
   }
 }
 
