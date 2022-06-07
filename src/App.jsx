@@ -1,7 +1,21 @@
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import Footer from "./components/Footer";
+
+import Header from "./components/Header";
+import RouteList from "./Router";
+
 function App() {
+  const createHistory = require("history").createBrowserHistory;
+  const history = createHistory();
   return (
-    <div className="App">
-      <div className="hello">Hello world</div>
+    <div className="wrapper">
+      <Router history={history}>
+        <Header />
+        <main className="content">
+          <RouteList />
+        </main>
+        <Footer />
+      </Router>
     </div>
   );
 }
