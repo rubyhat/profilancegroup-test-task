@@ -1,7 +1,8 @@
 const init = {
-  isLogin: false,
   login: "Гость",
   password: "",
+  isAdmin: false,
+  isLogin: false,
 };
 
 export const userReducer = (state = init, action) => {

@@ -1,19 +1,43 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { v4 as uuidv4 } from "uuid";
 
 import useInput from "../../CustomHooks/useInput";
-import { Input, Textarea, InputNotification } from "../../Helpers";
+import { Input, Textarea, InputNotification, Alert } from "../../Helpers";
 
 import "./newsCreateForm.scss";
 
 const NewsCreateForm = () => {
+  const dispatch = useDispatch();
+  const [isCreated, setIsCreated] = useState(false);
+
   const title = useInput("", {
     isEmpty: true,
     minLength: 6,
     maxLength: 30,
   });
   const text = useInput("", { isEmpty: true, minLength: 6, maxLength: 300 });
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+
+    if (!title.formValid || !text.formValid) {
+      const newsData = {
+        id: uuidv4(),
+        title: title.value,
+        text: text.value,
+        timestamp: new Date().toLocaleDateString(),
+        isAccepted: false,
+      };
+      dispatch({ type: "ADD_NEWS", payload: newsData });
+      setIsCreated(true);
+      title.onReset();
+      text.onReset();
+    }
+  };
+
   return (
-    <form className="create-form">
+    <form className="create-form" onSubmit={(event) => handleFormSubmit(event)}>
       <div className="create-form__field-wrap">
         <Input
           type={title}
@@ -61,6 +85,9 @@ const NewsCreateForm = () => {
       >
         Создать новость
       </button>
+      {isCreated && (
+        <Alert text="Новость успешно создана" variant={"alert_info"} />
+      )}
     </form>
   );
 };

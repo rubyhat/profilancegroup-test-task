@@ -12,14 +12,21 @@ const useInput = (initialValue, validations) => {
     const value = event.target.value;
     setValue(value);
   };
+
   const onBlur = () => {
     setIsDirty(true);
+  };
+
+  const onReset = () => {
+    setValue("");
+    setIsDirty(false);
   };
 
   return {
     value,
     onChange,
     onBlur,
+    onReset,
     isDirty,
     ...valid,
   };

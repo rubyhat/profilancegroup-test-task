@@ -135,6 +135,15 @@ footer {
   font-weight: 700;
 }
 
+.is-danger {
+  background: var(--second);
+  color: var(--white);
+  &:hover {
+    border-color: var(--accent);
+    background: var(--second);
+  }
+}
+
 .link {
   font-size: 1rem;
   font-weight: 700;
