@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { Alert, Container, SearchInput } from "../../Helpers";
@@ -10,19 +10,32 @@ const NewsList = () => {
   const userStore = useSelector((state) => state.user);
   const newsStore = useSelector((state) => state.news);
   const newsList = newsStore.newsList;
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
     <Container>
-      <SearchInput />
+      <SearchInput searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
       <div className="news-list">
         {newsList.length > 0 &&
-          newsList.map((item) =>
-            userStore.isLogin ? (
-              <NewsItem key={item.id} {...item} />
-            ) : (
-              item.isAccepted && <NewsItem key={item.id} {...item} />
-            )
-          )}
+          newsList
+            .filter((item) => {
+              if (searchQuery === "") {
+                return item;
+              } else if (
+                item.title.toLowerCase().includes(searchQuery.toLowerCase())
+              ) {
+                return item;
+              } else {
+                return null;
+              }
+            })
+            .map((item) =>
+              userStore.isLogin ? (
+                <NewsItem key={item.id} {...item} />
+              ) : (
+                item.isAccepted && <NewsItem key={item.id} {...item} />
+              )
+            )}
         {newsList.length === 0 && (
           <Alert
             text="Список новостей пуст! Создайте новость прямо сейчас :)"

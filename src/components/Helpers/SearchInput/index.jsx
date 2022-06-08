@@ -2,9 +2,10 @@ import React from "react";
 
 import "./searchInput.scss";
 
-const SearchInput = () => {
+const SearchInput = ({ searchQuery, setSearchQuery }) => {
   const handleInput = (event) => {
-    console.log(event.target.value);
+    const value = event.target.value.toLowerCase();
+    setSearchQuery(value);
   };
   return (
     <div className="search-input">
@@ -12,6 +13,7 @@ const SearchInput = () => {
         className="search-input__input"
         type="text"
         onChange={(event) => handleInput(event)}
+        value={searchQuery}
       />
       <button className="button search-input__button">Поиск</button>
     </div>
