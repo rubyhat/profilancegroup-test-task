@@ -8,7 +8,6 @@ import "./newsItem.scss";
 const NewsItem = (props) => {
   const { id, title, text, timestamp, isAccepted } = props;
   const userStore = useSelector((state) => state.user);
-  const newsStore = useSelector((state) => state.news);
   const dispatch = useDispatch();
 
   const handleButtonClick = (type) => {
