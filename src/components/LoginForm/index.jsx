@@ -1,20 +1,75 @@
-import React from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+
 import useInput from "../CustomHooks/useInput";
 import { Input, InputNotification } from "../Helpers";
 
 import "./loginForm.scss";
 
-const LoginForm = () => {
+const LoginForm = ({ setIsActive }) => {
+  const dispatch = useDispatch();
+  const [failLogin, setFailLogin] = useState(false);
+
+  const users = [
+    {
+      login: "user@mail.com",
+      password: "useruser",
+      isAdmin: false,
+      isLogin: true,
+    },
+    {
+      login: "admin@mail.com",
+      password: "adminadmin",
+      isAdmin: true,
+      isLogin: true,
+    },
+  ];
+
   const email = useInput("", {
     isEmpty: true,
     minLength: 6,
     isEmail: true,
     maxLength: 30,
   });
+
   const password = useInput("", { isEmpty: true, minLength: 6, maxLength: 30 });
 
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    const [user, admin] = users;
+
+    // Костыльная проверка костыльных пользователей, как сказано в ТЗ - пользователей забить в константу :)
+    const isValidUser = (user, admin) => {
+      setFailLogin(false);
+      if (user.login === email.value && user.password === password.value) {
+        dispatch({
+          type: "ADD_USER",
+          payload: { ...user },
+        });
+        setIsActive(false);
+      } else if (
+        admin.login === email.value &&
+        admin.password === password.value
+      ) {
+        dispatch({
+          type: "ADD_USER",
+          payload: { ...admin },
+        });
+        setIsActive(false);
+      } else {
+        setFailLogin(true);
+      }
+    };
+    isValidUser(user, admin);
+  };
+
   return (
-    <form className="login-form">
+    <form
+      className={failLogin ? "login-form login-form_fail" : "login-form"}
+      onSubmit={(event) => {
+        handleFormSubmit(event);
+      }}
+    >
       <div className="login-form__input-wrap">
         <Input
           type={email}
@@ -79,6 +134,13 @@ const LoginForm = () => {
       >
         Войти
       </button>
+
+      {failLogin && (
+        <InputNotification
+          text={"Неверный логин или пароль"}
+          isValid={!failLogin}
+        />
+      )}
     </form>
   );
 };

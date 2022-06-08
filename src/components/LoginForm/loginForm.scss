@@ -3,6 +3,12 @@
   flex-direction: column;
 }
 
+.login-form_fail {
+  input {
+    border-color: var(--second);
+  }
+}
+
 .login-form__input-wrap {
   margin-bottom: 0.5rem;
 }

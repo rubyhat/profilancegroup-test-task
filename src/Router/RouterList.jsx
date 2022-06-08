@@ -1,13 +1,15 @@
 import { Route, Routes } from "react-router-dom";
-import ProtectedRoute from "./ProtectedRouter";
+import { useSelector } from "react-redux";
 
+import ProtectedRoute from "./ProtectedRouter";
 import Home from "../components/Home";
 import { NewsList } from "../components/News";
 import { NoAuth, Page404 } from "../components/ErrorPages";
 import NewsCreate from "../components/News/NewsCreate";
 
 const RouteList = () => {
-  const isAuth = true;
+  const userStore = useSelector((state) => state.user);
+  const isAuth = userStore.isLogin;
   return (
     <Routes>
       <Route path="*" element={<Page404 />} />

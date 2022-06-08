@@ -5,9 +5,13 @@ import { Container, Modal } from "../Helpers";
 import LoginForm from "../LoginForm";
 
 import "./header.scss";
+import { useSelector, useDispatch } from "react-redux";
 
 const Header = () => {
   const [isActive, setIsActive] = useState(false);
+  const userStore = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
   return (
     <header>
       <Container>
@@ -19,19 +23,29 @@ const Header = () => {
             />
           </Link>
           <nav className="nav-list">
-            <Link className="link nav-list__item" to="/news/create">
-              Добавить новость
-            </Link>
+            {userStore.isLogin && (
+              <Link className="link nav-list__item" to="/news/create">
+                Добавить новость
+              </Link>
+            )}
             <Link className="link nav-list__item" to="/news">
               Новости
             </Link>
-            <Link
-              onClick={() => setIsActive(true)}
-              className="button button_xl nav-list__item"
-              to="/"
-            >
-              Вход
-            </Link>
+            {userStore.isLogin ? (
+              <button
+                onClick={() => dispatch({ type: "CLEAR_USER" })}
+                className="button button_xl nav-list__item"
+              >
+                Выход
+              </button>
+            ) : (
+              <button
+                onClick={() => setIsActive(true)}
+                className="button button_xl nav-list__item"
+              >
+                Вход
+              </button>
+            )}
           </nav>
         </div>
       </Container>
@@ -41,7 +55,7 @@ const Header = () => {
         setIsActive={setIsActive}
         title="Форма входа"
       >
-        <LoginForm />
+        <LoginForm setIsActive={setIsActive} />
       </Modal>
     </header>
   );
