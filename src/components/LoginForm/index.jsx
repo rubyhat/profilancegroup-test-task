@@ -46,6 +46,8 @@ const LoginForm = ({ setIsActive }) => {
           type: "ADD_USER",
           payload: { ...user },
         });
+        email.onReset();
+        password.onReset();
         setIsActive(false);
       } else if (
         admin.login === email.value &&
@@ -55,6 +57,8 @@ const LoginForm = ({ setIsActive }) => {
           type: "ADD_USER",
           payload: { ...admin },
         });
+        email.onReset();
+        password.onReset();
         setIsActive(false);
       } else {
         setFailLogin(true);
@@ -75,7 +79,7 @@ const LoginForm = ({ setIsActive }) => {
           type={email}
           inputType={"email"}
           title={"Email"}
-          placeholder={"email@mail.com as login"}
+          placeholder={"email@mail.com"}
         />
         {email.isDirty && (
           <>
