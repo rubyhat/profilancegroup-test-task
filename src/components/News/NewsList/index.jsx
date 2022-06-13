@@ -14,7 +14,7 @@ const NewsList = () => {
 
   return (
     <Container>
-      <SearchInput searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <SearchInput setSearchQuery={setSearchQuery} />
       <div className="news-list">
         {newsList.length > 0 &&
           newsList
